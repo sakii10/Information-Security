@@ -1,0 +1,50 @@
+<section class="login-section">
+  <div class="row text-center align-items-center m-3">
+    <div class="col-12 col-md-4"></div>
+
+    <div class="col-12 col-md-4 p-5 reesen-purple-background" style="border-radius: 10px">
+      <div>
+      </div>
+      <form loginForm [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="!verification">
+        <div class="alert alert-danger" role="alert" *ngIf="hasError">
+          {{errMsg}}
+          
+        </div>
+        <div class="mb-3">
+          <label for="email" class="col-form-label text-light align-text-left">Email Address</label>
+          <input type="text" class="form-control" name="email" id="email" placeholder="example@mail.com" formControlName="email">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="col-form-label text-light align-text-left">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password123" formControlName="password">
+          <p class="align-text-right"><button (click)="sendEmailReset()" type="button" class="btn-reset" id="resetEmail"> Forgot Password?</button></p>
+        </div>
+
+        <div class="mb-3">
+          <div class="g-recaptcha" ng-model="g-recaptcha-response" data-sitekey="6Ldu7qMmAAAAAGdH7oIjySCbxJw407_ewomHXnkJ"></div>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="bg-white reesen-purple-text-color button-style" id="confirmLogin">Login</button>
+          <h3 class="py-4"><a [routerLink]="['/registration']" class="text-light">New Account?<br/> Register now! </a></h3>
+        </div>
+      </form>
+
+      <div class="mb-3" *ngIf="!verification">
+        <div class="text-center pics">
+          <label style="color: white">Continue with Google</label>
+          <div id="buttonDiv" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+
+          </div>
+        </div>
+      </div>
+
+      <form (ngSubmit)="submitForm()" class="verification-form" *ngIf="verification">
+        <label for="verificationCode">Verification code:</label>
+        <input type="text" id="verificationCode" name="verificationCode" [(ngModel)]="verificationCode" required>
+        <button type="submit">Send</button>
+      </form>
+
+    </div>
+  </div>
+</section>

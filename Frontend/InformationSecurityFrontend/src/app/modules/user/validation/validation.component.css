@@ -1,0 +1,67 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:-150px;
+  height: 100vh;
+  ; /* Podesite željeni razmak od vrha stranice */
+
+}
+
+.form-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: rgb(240, 224, 255);
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(115, 72, 120);
+}
+
+label {
+  color: rgb(115, 72, 120);
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(115, 72, 120);
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(115, 72, 120);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(115, 72, 120, 0.8);
+}
+
+.checkmark {
+  font-size: 40px; /* Podesite željenu veličinu znaka */
+  color: green; /* Podesite željenu boju */
+}
+
+.valid {
+  font-family: sans-serif;
+  font-size: 25px;
+  color: green;
+}
+
+.invalid {
+  font-family: sans-serif;
+  font-size: 25px;
+  color: red;
+}

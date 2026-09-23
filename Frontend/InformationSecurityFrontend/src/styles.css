@@ -1,0 +1,67 @@
+
+
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.reesen-nav-background {
+  background-color: rgba(241, 255, 224, 1);
+}
+
+.reesen-purple-background{
+  background-color: rgb(115,72,120);
+}
+.reesen-footer-bottom-background{
+  background-color: rgb(115,72,120);
+}
+
+.reesen-purple-text-color{
+  color:rgb(115,72,120);
+}
+
+.reesen-big-lead-text{
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.bold-text{
+  font-weight: 600;
+}
+.font-size-26{
+  font-size: 26px;
+}
+
+.custom-text-ride-color{
+  color: #e60000;
+}
+
+.reesen-button{
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 22px;
+  padding: 10px 16px;
+  min-width: 150px;
+  text-transform: uppercase;
+}
+.cancel-button{
+  background-color: red;
+  color: white;
+
+}
+
+.cancel-button:hover{
+  color: rgb(211, 214, 244);
+}
+
+.confirmation-button{
+  background-color: white;
+  border: 2px solid black;
+  color: #578979;
+
+}
+
+.confirmation-button:hover{
+  color: rgb(73, 34, 71);}/* You can add global styles to this file, and also import other style files */

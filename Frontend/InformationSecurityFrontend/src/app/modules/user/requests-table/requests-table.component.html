@@ -1,0 +1,31 @@
+<div class="table-container">
+
+  <table class="custom-table">
+  <thead>
+  <tr>
+    <th>Owner</th>
+    <th>Parent Serial Number</th>
+    <th>Creation Time</th>
+    <th>Request State</th>
+    <th>Acceptance Time</th>
+    <th>Certificate Type</th>
+    <th>Rejection</th>
+    <th>Organization</th>
+    <th>Organization Unit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of certificateData">
+    <td>{{ item.owner.name + " " + item.owner.surname}}</td>
+    <td>{{ item.parentCertificateSerialNumber ? item.parentCertificateSerialNumber : "/"}}</td>
+    <td>{{ item.creationTime | date: 'dd.MM.yyyy HH:mm'}}</td>
+    <td [ngClass]="{'approved': item.requestState === 'APPROVED', 'rejected': item.requestState === 'REJECTED'}">{{ item.requestState }}</td>
+    <td>{{ item.acceptanceTime | date: 'dd.MM.yyyy HH:mm'}}</td>
+    <td>{{ item.certificateType }}</td>
+    <td>{{ item.rejection ? item.rejection : "/"}}</td>
+    <td>{{ item.organization }}</td>
+    <td>{{ item.organizationUnit }}</td>
+  </tr>
+  </tbody>
+</table>
+</div>

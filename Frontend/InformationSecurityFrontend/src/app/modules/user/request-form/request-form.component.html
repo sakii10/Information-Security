@@ -1,0 +1,58 @@
+<section class="register-section">
+  <form register
+        [formGroup]="certificateForm"
+        (ngSubmit)="onSubmit()">
+    <div class="register-container">
+      <div class="row">
+        <div class="col-4 spec center">
+          <div class="row text-center">
+            <div class="col center reesen-big-lead-text join-us">
+              <br></div>
+            <div class="col center">
+              <img src="../../../assets/img/badge.png" alt="Logo" class="logo-image">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-8">
+          <h1 class="reg-lbl">Create request</h1>
+          <div class="row">
+
+            <div class="col">
+
+              <div class="form-group">
+                <label for="organization">Organization</label>
+                <input type="text" class="form-control" id="organization" formControlName="organization">
+              </div>
+              <div class="form-group">
+                <label for="organizationUnit">Organization Unit</label>
+                <input type="text" class="form-control" id="organizationUnit" formControlName="organizationUnit">
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" id="type" formControlName="type">
+                  <option value="INTERMEDIATE" selected>INTERMEDIATE</option>
+                  <!--TODO: If role is Admin then show ROOT -->
+                  <option value="ROOT" *ngIf="role === 'ROLE_ADMIN'">ROOT</option>
+                  <option value="END">END</option>
+                </select>
+              </div>
+              <div class="form-group" *ngIf="!isRoot">
+                <label for="serialNumber" class="form-label d-block">Parent certificate serial number:</label>
+                <input type="number" formControlName="serialNumber" id="serialNumber" class="form-control text-center">
+              </div>
+              <div class="text-center">
+              <button type="submit" class="btn btn-primary signup">Send</button>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="row methods">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

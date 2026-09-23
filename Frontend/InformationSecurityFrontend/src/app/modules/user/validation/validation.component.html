@@ -1,0 +1,38 @@
+
+      <div class="container center">
+        <div class="form-container">
+        <h2>Certificate validation</h2>
+        <div>
+          <label>
+            <input type="radio" name="verificationMethod" value="serialNumber" [(ngModel)]="verificationMethod">
+            By serial number
+          </label>
+        </div>
+        <div *ngIf="verificationMethod === 'serialNumber'">
+          <label for="serialNumber">Serial number:</label>
+          <input type="text" id="serialNumber" [(ngModel)]="serialNumber">
+          <button (click)="verifyBySerialNumber()">Validate</button>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="verificationMethod" value="certificateFile" [(ngModel)]="verificationMethod" (click)="changeValues()">
+            By upload a certificate
+          </label>
+        </div>
+          <div *ngIf="verificationMethod === 'certificateFile'">
+            <form (submit)="verifyByCertificateFile()" enctype="multipart/form-data">
+              <input type="file" (change)="onFileSelected($event)">
+              <button type="submit">Validate</button>
+            </form>
+          </div>
+          <div *ngIf="validCertificate">
+            <span class="checkmark">&#10004;</span>
+            <span class="valid">Certificate is valid</span>
+          </div>
+          <div *ngIf="invalidCertificate">
+            <span class="checkmark">&#10060;  </span>
+            <span class="invalid">Invalid certificate</span>
+          </div>
+      </div>
+      </div>
+

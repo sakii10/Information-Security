@@ -1,0 +1,97 @@
+.register-section{
+  width: 50%;
+  margin: 40px auto;
+}
+
+.register-container{
+  box-shadow: 3px 5px 15px rgb(129, 129, 129);
+  border-radius: 15px;
+  padding-right: 5px;
+}
+
+select {
+  width: 80%;
+}
+
+.spec{
+  background-color:rgb(115,72,120);;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.reg-lbl{
+  text-align: center;
+  color:rgb(115,72,120);;
+}
+
+.methods{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup{
+  color:white;
+  margin-top: 7px;
+  width: 30%;
+  background-color:rgb(115,72,120);;
+  padding:6px 26px;
+  border-radius: 8px;
+  border: 1px transparent;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 5px rgb(91, 91, 91);
+}
+
+.pics{
+  margin-bottom: 15px;
+}
+
+input{
+  width: 80%;
+  background-color: transparent;
+  color: #899391;
+  border-color: #89908e;
+  border-bottom: 2px solid;
+}
+input:hover::-webkit-input-placeholder{
+  opacity: 1;
+}
+
+
+
+.logo-image{
+  width: 8vw;
+  height:auto;
+}
+.form-group {
+  padding: +5px;
+  padding-left: 60px;
+}
+
+.form-check-label {
+  color: #124439;
+
+}
+
+.center {
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.confirmation-button {
+  width: 30%;
+}
+@media only screen and (max-width: 800px) {
+  .logo-image{
+    width: 20vw;
+  }
+  .register-container{
+    width: 100%;
+  }
+}

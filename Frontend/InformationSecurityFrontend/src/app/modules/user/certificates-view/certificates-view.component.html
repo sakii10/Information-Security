@@ -1,0 +1,50 @@
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+    <tr>
+      <th *ngIf="!own">Owner</th>
+      <th>Start Date</th>
+      <th>Expire Date</th>
+      <th>Type</th>
+      <th>Serial Number</th>
+      <th *ngIf="!own"></th>
+      <th *ngIf="own">Download</th>
+      <th *ngIf="own"></th>
+      <th *ngIf="own">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let certificate of certificates">
+      <td *ngIf="!own">{{ certificate.ownerInfo.name + ' ' + certificate.ownerInfo.surname }}</td>
+      <td>{{ certificate.startDate | date: 'dd.MM.yyyy HH:mm' }}</td>
+      <td>{{ certificate.expireDate | date: 'dd.MM.yyyy HH:mm' }}</td>
+      <td>{{ certificate.type }}</td>
+      <td>{{ certificate.serialNumber }}</td>
+      <td class="revoke" style="white-space: pre-line;"  *ngIf="!own">
+        <ng-container *ngIf="certificate.revokingReason; else notRevoked">
+          <strong>REVOKED</strong>
+          {{ '\n' + certificate.revokingReason }}
+        </ng-container>
+        <ng-template #notRevoked></ng-template>
+      </td>
+
+      <td *ngIf="own" (click)="downloadCertificate(certificate)" class="dark-color ">Certificate</td>
+      <td *ngIf="own" (click)="downloadPrivateKey(certificate.serialNumber)" class="dark-color ">Key</td>
+      <td *ngIf="own && !certificate.revokingReason">
+        <button class="approve" (click)="setCertificateForRevoking(certificate)">Revoke</button>
+      </td>
+      <td *ngIf="own && certificate.revokingReason" style="white-space: pre-line;" class="revoke">
+        <strong>REVOKED</strong>
+        {{ '\n' + certificate.revokingReason }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showRevokingForm">
+    <label for="rejectionReason">Revoking Reason:</label>
+    <input type="text" id="rejectionReason" [(ngModel)]="rejectionReason" class="rejection-input">
+    <button (click)="revokeCertificate()" id="sendButton">Send</button>
+  </div>
+
+</div>

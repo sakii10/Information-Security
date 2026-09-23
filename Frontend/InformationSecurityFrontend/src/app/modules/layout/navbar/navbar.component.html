@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div id="full_screen">
+  <div class="row pt-4 pb-1" style="  background-color: rgb(240,224,255);">
+    <div class="col-3">
+      <a href="#"><img class="logo" src="assets/img/badge.png"></a>
+    </div>
+
+        <div class="col-6 text-center  nav-items">
+          <div id="full-screen">
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/newCertificate']">New request</a></span>
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/allCertificates']">All certificates</a></span>
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/myCertificates']" [queryParams]="{ own: true }">My certificates</a></span>
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/validation']">Validation</a></span>
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/requests']">Requests</a></span>
+            <span class="m-3 hover-underline-animation" *ngIf="role !== null"><a [routerLink]="['/requestsForMe']">Requests for me</a></span>
+
+          </div>
+        </div>
+
+    <div class="col-3 text-end nav-items" id="left">
+      <!-- prikazati neregeistrovanom/neulogovanom -->
+      <span class="text-right m-3 hover-underline-animation" style="display: inline" *ngIf="role === null"><a [routerLink]="['/home']"  id="login">Log In</a></span>
+      <!-- prikazati ulogovanom -->
+      <span class="text-right m-3" *ngIf="role !== null"><button class="logout-button" type="button" id="logout-button" (click)="logout()" id="logout">Log Out</button></span>
+    </div>
+
+  </div>
+</div>

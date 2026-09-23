@@ -1,0 +1,35 @@
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+    <tr>
+      <th>Parent Serial Number</th>
+      <th>Creation Time</th>
+      <th>Owner</th>
+      <th>Certificate Type</th>
+      <th>Organization</th>
+      <th>Organization Unit</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of certificateList">
+      <td>{{ item.parentCertificateSerialNumber }}</td>
+      <td>{{ item.creationTime | date: 'dd.MM.yyyy HH:mm'}}</td>
+      <td>{{ item.owner.name + " " + item.owner.surname }}</td>
+      <td>{{ item.certificateType }}</td>
+      <td>{{ item.organization }}</td>
+      <td>{{ item.organizationUnit }}</td>
+      <td>
+        <button (click)="approveCertificate(item)" id="approve">Approve</button>
+        <button (click)="rejectCertificate(item)" id="reject">Reject</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showRejectionForm">
+    <label for="rejectionReason">Rejection Reason:</label>
+    <input type="text" id="rejectionReason" [(ngModel)]="rejectionReason" class="rejection-input">
+    <button (click)="sendRejection()" id="sendButton">Send</button>
+  </div>
+</div>
